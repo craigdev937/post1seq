@@ -1,9 +1,14 @@
+import "dotenv/config";
 import express from "express";
 import helmet from "helmet";
 import logger from "morgan";
 import { friendRt } from "./routes/friendRt.js";
+import { dBase } from "./config/database.js";
 
 (async () => {
+    dBase.authenticate()
+    .then(() => console.groupCollapsed("Database Connected!"))
+    .catch((error) => console.log("Error: " + error));
     const app = express();
     app.use(helmet());
 
