@@ -1,0 +1,34 @@
+{
+  "name": "post1seq",
+  "version": "1.0.0",
+  "description": "Initial setup of the project.  Created with Express, PostgreSQL and Sequelize.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indigomx9/post1seq.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/indigomx9/post1seq/issues"
+  },
+  "homepage": "https://github.com/indigomx9/post1seq#readme",
+  "dependencies": {
+    "express": "^4.18.1",
+    "helmet": "^5.1.0",
+    "morgan": "^1.10.0",
+    "pg": "^8.7.3",
+    "pg-hstore": "^2.3.4",
+    "sequelize": "^6.20.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
+
+
