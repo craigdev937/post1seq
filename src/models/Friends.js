@@ -1,7 +1,7 @@
 import { DataTypes } from "sequelize";
 import { dBase } from "../config/database.js";
 
-export const Friends = dBase.define("friends", {
+export const FriendModel = dBase.define("friends", {
     id: {
         type: DataTypes.STRING,
         primaryKey: true,

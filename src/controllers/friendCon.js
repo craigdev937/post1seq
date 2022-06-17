@@ -1,10 +1,10 @@
-import { Friends } from "../models/Friends.js";
+import { FriendModel } from "../models/Friends.js";
 
-class FriendsClass {
+class FriendClass {
     Create = async (req, res, next) => {
         const { first, last, age, info } = req.body;
         try {
-            let newFriend = await Friends.create({
+            let newFriend = await FriendModel.create({
                 first, last, age, info
             }, {
                 fields: ["first", "last", "age", "info"]
@@ -18,7 +18,7 @@ class FriendsClass {
 
     FetchAll = async (req, res, next) => {
         try {
-            const friends = await Friends.findAll({
+            const friends = await FriendModel.findAll({
                 attributes: ["id", "first", "last", "age", "info"]
             });
             res.json(friends);
@@ -31,7 +31,7 @@ class FriendsClass {
     GetOne = async (req, res, next) => {
         const { id } = req.params;
         try {
-            const friend = await Friends.findOne({
+            const friend = await FriendModel.findOne({
                 where: { id }
             });
             return res.status(200).json(friend);
@@ -45,7 +45,7 @@ class FriendsClass {
         try {
             const { id } = req.params;
             const { first, last, age, info } = req.body;
-            const friend = await Friends.findByPk(id);
+            const friend = await FriendModel.findByPk(id);
                 friend.first = first;
                 friend.last = last;
                 friend.age = age;
@@ -61,7 +61,7 @@ class FriendsClass {
     Delete = async (req, res, next) => {
         const { id } = req.params;
         try {
-            await Friends.destroy({where: { id }});
+            await FriendModel.destroy({where: { id }});
             return res.sendStatus(204);
         } catch (error) {
             res.status(500).json("The Friend was deleted!");
@@ -70,7 +70,7 @@ class FriendsClass {
     };
 };
 
-export const FRIENDS = new FriendsClass();
+export const FRIENDS = new FriendClass();
 
 
 
